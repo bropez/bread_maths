@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Bread Calculations</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <form>
+        <label for="flour">Flour amount</label>
+        <input name="flour" id="flour"><br>
+        
+        <label for="water">Water amount</label>
+        <p id="water"></p>
+        <!--<input name="water" id="water"><br>-->
+
+        <label for"starter">Starter amount</label>
+        <p id="starter"></p>
+        <!--<input name="starter" id="starter"><br>-->
+
+        <label for="salt">Salt amount</label>
+        <p id="salt"></p>
+        <!--<input name="salt" id="salt"><br>-->
+
+        <button type="button" onclick="get_amounts()">Click me</button>
+    </form>
+
+    <script>
+        function get_amounts() {
+            let flourInput = document.getElementById("flour").value;
+            let waterBox = document.getElementById("water");
+            let starterBox = document.getElementById("starter");
+            let saltBox = document.getElementById("salt");
+
+            let totalFlour = parseInt(flourInput);
+            let waterAmt;
+            let starterAmt;
+            let saltAmt;
+
+            waterAmt = flourInput * .76;
+            starterAmt = flourInput * .2;
+            halfStarter = starterAmt * .5;
+            totalFlour = totalFlour + halfStarter;
+            waterAmt = (totalFlour * .76) - halfStarter;
+            saltAmt = totalFlour * .02;
+
+            waterBox.innerHTML = waterAmt + 'g';
+            starterBox.innerHTML = starterAmt + 'g';
+            saltBox.innerHTML = saltAmt + 'g';
+        }
+
+    </script>
+</body>
+</html>
